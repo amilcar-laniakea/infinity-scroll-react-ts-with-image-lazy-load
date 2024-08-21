@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { Product } from "./types"
 import { Card, Col, Row } from "react-bootstrap";
 
+import Image from './components/Image'
+
 const ProductList = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(true);
@@ -49,11 +51,7 @@ const ProductList = () => {
         <Card key={product.id} style={{ marginBottom: "15px" }}>
           <Row>
             <Col md={4}>
-              <img
-                src={product.thumbnail}
-                alt={product.title}
-                style={{ width: "100%" }}
-              />
+              <Image url={product.thumbnail} title={product.title} />
             </Col>
             <Col md={8}>
               <Card.Body>
